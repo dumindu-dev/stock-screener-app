@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Stock Screening Web App</title>
+    <link href="css/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+    <div class="container mx-auto">
+        <!-- Header -->
+        <header class="bg-white p-4 shadow mb-8">
+            <h1 class="text-2xl font-bold">Stock Screening Web App</h1>
+            <nav class="mt-2">
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Dashboard</a></li>
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Views</a></li>
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Filters</a></li>
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Dividends</a></li>
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Content -->
+        <main class="p-4">
+            <h2 class="text-2xl font-bold mb-4">Dashboard</h2>
+
+            <!-- All Sections -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <!-- Top Performing View Section -->
+                <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h3 class="text-xl font-bold mb-2">Top Performing View</h3>
+                    <!-- Example data for top performing view -->
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold mb-2">View Name 1</h4>
+                        <p class="text-sm text-gray-600 mb-2">Description of View 1</p>
+                        <p class="text-sm text-green-600">Performance: +10%</p>
+                    </div>
+                </section>
+
+                <!-- Top Performing Filter Section -->
+                <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h3 class="text-xl font-bold mb-2">Top Performing Filter</h3>
+                    <!-- Example data for top performing filter -->
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold mb-2">Filter Name 1</h4>
+                        <p class="text-sm text-gray-600 mb-2">Description of Filter 1</p>
+                        <p class="text-sm text-green-600">Performance: +10%</p>
+                    </div>
+                </section>
+
+                <!-- Highest Dividend Yield Section -->
+                <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h3 class="text-xl font-bold mb-2">Highest Dividend Yield</h3>
+                    <!-- Example data for highest dividend yield -->
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold mb-2">Stock Symbol</h4>
+                        <p class="text-sm text-gray-600 mb-2">Upcoming XD Date: [Date]</p>
+                        <p class="text-sm text-green-600">Dividend Yield: [Dividend Yield]</p>
+                    </div>
+                </section>
+                
+            </div>
+
+            <!-- New row for Notifications and Market Statistics Section -->
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-1">
+
+                <!-- Notifications Section -->
+                <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h3 class="text-xl font-bold mb-2">Notifications</h3>
+                    <!-- Example data for notifications -->
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <!-- Dividend Announcements -->
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">Dividend Announcements</h4>
+                            <ul class="text-sm">
+                                <li class="flex items-center">
+                                    <div class="bg-green-500 h-6 w-6 rounded-full flex justify-center items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3">Stock Symbol: [Stock Symbol], Dividend Amount: [Dividend Amount], XD Date: [XD Date]</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Filter Changes -->
+                        <hr class="mt-6 mb-4 border-t border-gray-300"> <!-- added border -->
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">Filter Changes</h4>
+                            <ul class="text-sm">
+                                <li class="flex items-center">
+                                    <div class="bg-blue-500 h-6 w-6 rounded-full flex justify-center items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3">Filter Name: [Filter Name], Stocks Added: [Stocks Added], Stocks Removed: [Stocks Removed]</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Market Statistics Section -->
+                <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h3 class="text-xl font-bold mb-2">Market Statistics</h3>
+                    <!-- Gainers, Losers, Active Stocks Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                        <!-- Top 10 Gainers Section -->
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="text-lg font-bold mb-2">Top 10 Gainers</h4>
+                            <!-- Example data for top 10 gainers -->
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2">Stock</th>
+                                        <th class="px-4 py-2">Price</th>
+                                        <th class="px-4 py-2">Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 1</td>
+                                        <td class="px-4 py-2">$100.00</td>
+                                        <td class="px-4 py-2">+2.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 2</td>
+                                        <td class="px-4 py-2">$110.00</td>
+                                        <td class="px-4 py-2">-1.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 3</td>
+                                        <td class="px-4 py-2">$95.00</td>
+                                        <td class="px-4 py-2">+3.50</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Top 10 Losers Section -->
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="text-lg font-bold mb-2">Top 10 Losers</h4>
+                            <!-- Example data for top 10 losers -->
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2">Stock</th>
+                                        <th class="px-4 py-2">Price</th>
+                                        <th class="px-4 py-2">Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 4</td>
+                                        <td class="px-4 py-2">$90.00</td>
+                                        <td class="px-4 py-2">-2.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 5</td>
+                                        <td class="px-4 py-2">$95.00</td>
+                                        <td class="px-4 py-2">-1.50</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 6</td>
+                                        <td class="px-4 py-2">$85.00</td>
+                                        <td class="px-4 py-2">-4.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Most Active Stocks Section -->
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="text-lg font-bold mb-2">Most Active Stocks</h4>
+                            <!-- Example data for most active stocks -->
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2">Stock</th>
+                                        <th class="px-4 py-2">Price</th>
+                                        <th class="px-4 py-2">Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 7</td>
+                                        <td class="px-4 py-2">$100.00</td>
+                                        <td class="px-4 py-2">+2.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 8</td>
+                                        <td class="px-4 py-2">$110.00</td>
+                                        <td class="px-4 py-2">-1.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">Stock 9</td>
+                                        <td class="px-4 py-2">$95.00</td>
+                                        <td class="px-4 py-2">+3.50</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-8 py-4 bg-gray-800 text-white">
+            <p class="text-center">&copy; 2024 Stock Screening Web App. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

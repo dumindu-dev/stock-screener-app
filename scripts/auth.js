@@ -1,0 +1,51 @@
+import {config} from "./config.js";
+
+function authenticateUser(auth,noticeBanner){
+    auth.getAccessToken().then((accessToken)=>{
+        let authHeader = {};
+        authHeader[config.authHeaderKey] = config.authHeaderValuePrefix+accessToken;
+
+        axios.get(config.apiUrl + "/auth/authenticate", {
+            headers: authHeader
+        }).then((response) => {
+            console.log(response);
+            if(response.data.success === 1){
+                noticeBanner.innerHTML = "Redirecting to the dashboard";
+                //window.location = "dashboard.html";
+            }else{
+                alert("Invalid response from the server. Please refresh this page");
+            }
+        },(e) => {
+            alert("Something went wrong. Please refresh this page");
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let auth = AsgardeoAuth.AsgardeoSPAClient.getInstance();
+    let noticeBanner = document.getElementById("notice");
+
+    auth.initialize(config.asgardeoConfig);
+    auth.signIn();
+    noticeBanner.innerHTML = "Authenticating the user";
+
+
+    auth.on("sign-in", (response) => {
+        authenticateUser(auth,noticeBanner);
+    });
+
+    document.getElementById("signout").addEventListener("click", function(ev){
+        auth.signOut();
+    });
+
+    const waitTillAuth = new Promise(function (resolve, reject) {
+        (function wait(){
+            if (auth.isAuthenticated()) return resolve();
+            setTimeout(wait, 1000);
+        })();
+    });
+    waitTillAuth.then(function(){
+        authenticateUser(auth,noticeBanner);
+    });
+
+});

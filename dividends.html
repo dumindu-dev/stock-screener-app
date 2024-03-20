@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Screening Web App - Dividends</title>
+  <link href="css/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+  <div class="container mx-auto">
+    <!-- Header -->
+    <header class="bg-white p-4 shadow mb-8">
+      <h1 class="text-2xl font-bold">Stock Screening Web App</h1>
+      <nav class="mt-2">
+        <ul class="flex space-x-4">
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Dashboard</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Views</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Filters</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Dividends</a></li>
+          <li><a href="#" class="text-blue-600 hover:text-blue-800">Settings</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Content -->
+    <main class="p-4">
+      <h2 class="text-2xl font-bold mb-4">Upcoming Dividends</h2>
+      <p class="text-sm text-gray-600 mb-4">The following list shows the upcoming dividends for stocks where the ex-dividend date has not yet passed:</p>
+
+      <!-- Alert Settings Button -->
+      <button id="alertSettingsButton" class="px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 rounded-md mb-4">Alert Settings</button>
+
+      <!-- Cash Dividends Section -->
+      <section class="mb-8">
+        <h3 class="text-xl font-bold mb-2">Cash Dividends</h3>
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock Name</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Symbol</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Price</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dividend Amount</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Yield</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Requires Approval</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">XD Date</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Initial Announcement</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <!-- Cash Dividend Rows -->
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">Stock Name</td>
+              <td class="px-6 py-4 whitespace-nowrap">Stock Symbol</td>
+              <td class="px-6 py-4 whitespace-nowrap">Last Price</td>
+              <td class="px-6 py-4 whitespace-nowrap">Dividend Amount</td>
+              <td class="px-6 py-4 whitespace-nowrap">Yield</td>
+              <td class="px-6 py-4 whitespace-nowrap">Yes</td>
+              <td class="px-6 py-4 whitespace-nowrap">XD Date</td>
+              <td class="px-6 py-4 whitespace-nowrap">Initial Announcement</td>
+            </tr>
+            <!-- Add more cash dividend rows here -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Scrip Dividends Section -->
+      <section class="mb-8">
+        <h3 class="text-xl font-bold mb-2">Scrip Dividends</h3>
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock Name</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Symbol</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Price</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dividend Amount</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Yield</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Requires Approval</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">XD Date</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Initial Announcement</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <!-- Scrip Dividend Rows -->
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">Stock Name</td>
+              <td class="px-6 py-4 whitespace-nowrap">Stock Symbol</td>
+              <td class="px-6 py-4 whitespace-nowrap">Last Price</td>
+              <td class="px-6 py-4 whitespace-nowrap">Dividend Amount</td>
+              <td class="px-6 py-4 whitespace-nowrap">Yield</td>
+              <td class="px-6 py-4 whitespace-nowrap">No</td>
+              <td class="px-6 py-4 whitespace-nowrap">XD Date</td>
+              <td class="px-6 py-4 whitespace-nowrap">Initial Announcement</td>
+            </tr>
+            <!-- Add more scrip dividend rows here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-8 py-4 bg-gray-800 text-white">
+      <p class="text-center">&copy; 2024 Stock Screening Web App. All rights reserved.</p>
+    </footer>
+
+    <!-- Alert Settings Modal -->
+    <div id="alertSettingsModal" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50 hidden">
+      <div class="bg-white p-8 rounded-lg max-w-lg">
+        <h3 class="text-xl font-bold mb-4">Alert Settings</h3>
+        <form>
+          <div class="flex items-center">
+            <input type="checkbox" id="initialDividendCheckbox" name="initialDividendCheckbox" class="mr-2">
+            <label for="initialDividendCheckbox" class="text-sm">Receive notifications for initial dividend announcements</label>
+          </div>
+          <div class="flex items-center mt-4">
+            <input type="checkbox" id="closeXDCheckbox" name="closeXDCheckbox" class="mr-2">
+            <label for="closeXDCheckbox" class="text-sm">Receive notifications for close ex-dividend dates</label>
+          </div>
+          <div class="flex justify-end mt-6">
+            <button type="submit" class="px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 rounded-md">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Alert Settings Modal
+    document.getElementById('alertSettingsButton').addEventListener('click', function () {
+      document.getElementById('alertSettingsModal').classList.remove('hidden');
+    });
+
+    // Close Alert Settings Modal
+    document.addEventListener('click', function (event) {
+      if (event.target === document.getElementById('alertSettingsModal')) {
+        document.getElementById('alertSettingsModal').classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

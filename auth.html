@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            text-align: center;
+        }
+        #notice{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center"><img src="images/loading.gif" alt="loading image" width="100"><br /><span id="notice">Validating the user session</span> </div>
+
+    <button id="signout">Sign out</button>
+
+    <script src="https://unpkg.com/@asgardeo/auth-spa@latest/dist/asgardeo-spa.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/auth.js" type="module"></script>  
+</body>
+</html>
