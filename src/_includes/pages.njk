@@ -1,0 +1,32 @@
+---
+title: My Rad Blog
+heroTitle: Hi investor,
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <script src="https://unpkg.com/@asgardeo/auth-spa@latest/dist/asgardeo-spa.production.min.js"></script>
+    <script src="/scripts/authentication.js" type="module"></script> 
+  </head>
+  <body>
+  {% include "partials/navbar.njk" %}
+  <section class="hero is-danger">
+    <div class="hero-body">
+      <p class="title">{{ heroTitle }}</p>
+    </div>
+  </section>
+  <div class="container">
+  {{ content | safe }}
+  </div>
+  {% include "partials/footer.njk" %}
+  <script>
+    document.getElementById("signout").addEventListener("click", function(ev){
+        auth.signOut();
+    });
+  </script>
+  </body>
+</html>

@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const waitTillAuth = new Promise(function (resolve, reject) {
         (function wait(){
             if (auth.isAuthenticated()) return resolve();
-            setTimeout(wait, 1000);
+            console.log("waiting");
+            setTimeout(wait, 5000);
         })();
     });
     waitTillAuth.then(function(){
