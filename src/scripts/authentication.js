@@ -17,3 +17,7 @@ window.callBackendApi = function async (path, data){
     };
     return auth.httpRequest(requestConfig);
 }
+
+setInterval(async ()=>{
+    await auth.refreshAccessToken();
+},1000*60*3);
