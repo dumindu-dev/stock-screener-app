@@ -1,0 +1,23 @@
+---
+layout: pages.njk
+title: Settings
+heroTitle: Settings
+---
+<h3 class="title is-5 mt-5">Connect a telegram account</h3>
+
+<img src="/images/loading.gif" alt="loading image" width="100" id="loading-image">
+
+<div id="telegram-not-connected-message" style="display:none;">
+    To receive alerts via Telegram, connect your Telegram account by sending a message with the following token to the <a href="https://t.me/screeningappbot" target="_blank">ScreeningAppBot</a>. Please refresh this page after sending the token.
+    <div class="notification mt-3" id="telegramToken">
+        loading...
+    </div>
+</div>
+
+<div id="telegram-connected-message" style="display:none;">
+    <div class="notification is-primary is-light">
+        You are connected to Telegram. You can now receive alerts via Telegram <br />
+        <button class="button is-danger mt-3" id="disconnect-btn">Disconnect</button>
+    </div>
+</div>
+<script src="/scripts/pages/settings.js" type="module"></script>
