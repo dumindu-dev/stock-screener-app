@@ -11,7 +11,7 @@ function authenticateUser(auth,noticeBanner){
             console.log(response);
             if(response.data.success === 1){
                 noticeBanner.innerHTML = "Redirecting to the dashboard";
-                //window.location = "dashboard.html";
+                window.location = "/dashboard";
             }else{
                 alert("Invalid response from the server. Please refresh this page");
             }

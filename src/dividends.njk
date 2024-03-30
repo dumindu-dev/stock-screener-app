@@ -1,0 +1,105 @@
+---
+layout: pages.njk
+title: Dividends
+heroTitle: Dividends
+---
+<p>The following list shows the upcoming dividends for stocks where the ex-dividend date has not yet passed</p>
+<button class="button is-primary m-4 js-modal-trigger" data-target="create-view-modal" id="alert-settings-btn">Alert settings</button>
+<table class="table is-hoverable">
+    <thead>
+        <th>Symbol</th>
+        <th>Company</th>
+        <th>Last price</th>
+        <th>Dividend amount</th>
+        <th>Dividend yield</th>
+        <th>XD date</th>
+    </thead>
+    <tbody id="stock-table-body">
+        <!-- template
+        <tr>
+            <td>APPL</td>
+            <td>Apple inc.</td>
+            <td>45.3</td>
+            <td>1</td>
+            <td>1%</td>
+            <td>2024-02-27</td>
+        </tr>
+        -->
+        <tr>
+            <td>
+                <img src="/images/loading.gif" alt="loading image" width="100">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal is-active" id="create-view-modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Alert settings</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+        <div class="notification is-warning" id="telegram-warning">
+            Please connect a telegram account first. You can do that from the <a href="/settings">settings</a> page.
+        </div>
+        <label class="checkbox" style="display:none;" id="dividend-setting">
+            <input type="checkbox" id="telegram-checkbox" />
+            Receive dividend notifications via telegram 
+        </label>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <button class="button is-success" id="saveSettingsButton">Save changes</button>
+        <button class="button close-modal">Cancel</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script src="/scripts/pages/dividends.js" type="module"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Functions to open and close a modal
+        function openModal($el) {
+            $el.classList.add('is-active');
+        }
+
+        function closeModal($el) {
+            $el.classList.remove('is-active');
+        }
+
+        function closeAllModals() {
+            (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                closeModal($modal);
+            });
+        }
+
+        // Add a click event on buttons to open a specific modal
+        (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+
+            $trigger.addEventListener('click', () => {
+            openModal($target);
+            });
+        });
+
+        // Add a click event on various child elements to close the parent modal
+        (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .close-modal') || []).forEach(($close) => {
+            const $target = $close.closest('.modal');
+
+            $close.addEventListener('click', () => {
+            closeModal($target);
+            });
+        });
+
+        // Add a keyboard event to close all modals
+        document.addEventListener('keydown', (event) => {
+            if(event.key === "Escape") {
+            closeAllModals();
+            }
+        });
+    });
+</script>
