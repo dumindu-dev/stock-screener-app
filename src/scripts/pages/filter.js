@@ -6,7 +6,7 @@ function dropdownItem(item){
 }
 
 
-function paramConditionElement(id, paramName){
+function paramConditionElement(id, paramName,cond='',val=0){
     return (`
     <div class="field is-horizontal" id="param-${id}">
         <div class="field-body">
@@ -20,14 +20,14 @@ function paramConditionElement(id, paramName){
                     <div class="select is-fullwidth">
                         <select class="paramExpr">
                             <option value="gt">Greater than</option>
-                            <option value="lt">Less than</option>
+                            <option value="lt" ${cond == 'lt'?'selected':''}>Less than</option>
                         </select>
                     </div>
                 </div>
             </div>
             <div class="field">
                 <p class="control is-expanded">
-                    <input class="input paramVal" type="number" placeholder="Value" onchange="this.setAttribute('value',this.value)" value="0">
+                    <input class="input paramVal" type="number" placeholder="Value" onchange="this.setAttribute('value',this.value)" value="${val}">
                 </p>
             </div>
             <button class="delete is-large" paramId="${id}"></button>
@@ -109,8 +109,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let searchBtn = document.getElementById("search-btn");
     let resultTable = document.getElementById("result-table");
     let paginationItems = document.getElementById("pagination-items");
+    let deleteFilterBtn = document.getElementById("delete-filter-btn");
 
     let paramIds = [];
+
+    let currentUrl = new URL(window.location.href);
+    let filter_id=currentUrl.searchParams.get("filter_id");
+
+    window.callBackendApi("/filters/getFilter",{filter:filter_id}).then(function(response){
+        console.log(response);
+
+        filterName.value = response.data.filter_name;
+        filterDescription.value = response.data.filter_description;
+
+        response.data.conditions.forEach(item=>{
+            paramIds.push(item._id);
+            conditionContainer.innerHTML += paramConditionElement(item._id,item.name,item.condition,item.value);
+        })
+        retriveStocks(0);
+    }).catch(function(e){
+        alert("Error retriving the filter stocks. Please refresh this page. "+ e);
+    });
 
     parameterSearchBox.addEventListener("keyup", function(event){
         dropdown.classList.add("is-active");
@@ -190,10 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
             saveBtn.classList.add("is-loading");
             let parameterList= readFilterParameters(paramIds,conditionContainer);
             console.log(parameterList);
-            window.callBackendApi("/filters/saveFilter",{filters:parameterList,name:filterName.value,description:filterDescription.value}).then(function(response){
+            window.callBackendApi("/filters/updateFilter",{filterId:filter_id,filters:parameterList,name:filterName.value,description:filterDescription.value}).then(function(response){
                 window.location = "/filters"
             }).catch(function(e){
-                alert("Error creating the filter. Try again. "+ e);
+                alert("Error updating the filter. Try again. "+ e);
                 saveBtn.classList.remove("is-loading");
             });
         }
@@ -212,6 +231,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const clickedNumber = event.target.innerHTML;
             retriveStocks(Number(clickedNumber) -1);
         }
+    });
+
+    deleteFilterBtn.addEventListener("click",function(event){
+        deleteFilterBtn.classList.add("is-loading");
+        window.callBackendApi("/filters/deleteFilter",{filter_id:filter_id}).then(function(response){
+            console.log(response);
+            window.location="/filters";
+        }).catch(function(e){
+            deleteFilterBtn.classList.remove("is-loading");
+            alert("Error deleting the filter. Try again. "+ e)
+        });
     });
 
 });

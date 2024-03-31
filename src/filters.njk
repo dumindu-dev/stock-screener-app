@@ -1,6 +1,26 @@
 ---
 layout: pages.njk
-title: Dashboard
-heroTitle: Dashboard
+title: Filters
+heroTitle: My filters
 ---
-<a href="/create-filter">Create new filter</a>
+<a href="/create-filter" class="button is-primary">Create new</a>
+<div class="columns is-multiline m-1" id="filterContainer">
+    <img src="/images/loading.gif" alt="loading image" width="100">
+    <!-- View card template
+    <div class="column is-one-third">
+        <div class="box">
+            <a class="title is-3" href="#">Title 3</a>
+            <p class="is-6">Subtitle 5</p>
+            <p class="m-2">
+            <span class="tag is-light">Light</span>
+            <span class="tag is-light">Light</span>
+            <span class="tag is-light">Light</span>
+            <span class="tag is-light">Light</span>
+            </p>
+            <p class="has-text-success">Performance: 1%</p>
+        </div>
+    </div>
+    -->
+</div>
+
+<script src="/scripts/pages/filters.js" type="module"></script> 
