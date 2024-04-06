@@ -3,4 +3,38 @@ layout: pages.njk
 title: Dashboard
 heroTitle: Dashboard
 ---
-This is the dashboard
+<div class="columns is-multiline m-1" id="viewContainer">
+    <div class="column is-half">
+        <div class="box">
+            <a class="is-size-4" href="/views">Best performing view</a>
+            <p class="is-size-1" id="view-performance"><img src="/images/loading.gif" alt="loading image" width="100"></p>
+            <p class="is-size-3" id="view-name"></p>
+        </div>
+    </div>
+    <div class="column is-half">
+        <div class="box">
+            <a class="is-size-4" href="/dividends">Highest dividend yield</a>
+            <p class="is-size-1" id="dividend-yield"><img src="/images/loading.gif" alt="loading image" width="100"></p>
+            <p class="is-size-3" id="dividend-company"></p>
+        </div>
+    </div>
+    <div class="column is-full">
+        <div class="box">
+            <p class="is-size-2">Economic Calendar</p>
+            <table class="table is-hoverable">
+                <thead>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Indicator</th>
+                    <th>Comment</th>
+                    <th>Importance</th>
+                </thead>
+                <tbody id="calendar-body">
+                    <tr><td><img src="/images/loading.gif" alt="loading image" width="100"></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/pages/dashboard.js" type="module"></script>

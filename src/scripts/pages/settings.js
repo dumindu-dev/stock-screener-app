@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             telegramNotConnectedMessage.style.display = "block";
             window.callBackendApi("/users/getTelegramToken",{}).then(function(response){
                 console.log(response);
-                telegramToken.innerHTML = "tk"+response.data.telegramToken;
+                telegramToken.innerHTML = response.data.telegramToken;
             });
         }else{
             telegramConnectedMessage.style.display = "block";
