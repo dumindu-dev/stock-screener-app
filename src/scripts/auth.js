@@ -29,7 +29,8 @@ function authenticateUser(auth,noticeBanner){
             alert("Invalid response from the server. Please refresh this page");
         }
     },(e) => {
-        alert("Something went wrong. Please refresh this page: "+e);
+        console.log(e);
+        alert("Something went wrong. Please refresh this page: ");
     });
 }
 
