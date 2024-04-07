@@ -1,7 +1,7 @@
 import {config} from "./config.js";
 
 function authenticateUser(auth,noticeBanner){
-    auth.getAccessToken().then((accessToken)=>{
+    /*auth.getAccessToken().then((accessToken)=>{
         let authHeader = {};
         authHeader[config.authHeaderKey] = config.authHeaderValuePrefix+accessToken;
 
@@ -18,6 +18,18 @@ function authenticateUser(auth,noticeBanner){
         },(e) => {
             alert("Something went wrong. Please refresh this page");
         });
+    });*/
+
+    window.callBackendApi("/auth/authenticate",{}).then(function(response){
+        console.log(response);
+        if(response.data.success === 1){
+            noticeBanner.innerHTML = "Redirecting to the dashboard";
+            window.location = "/dashboard";
+        }else{
+            alert("Invalid response from the server. Please refresh this page");
+        }
+    },(e) => {
+        alert("Something went wrong. Please refresh this page");
     });
 }
 

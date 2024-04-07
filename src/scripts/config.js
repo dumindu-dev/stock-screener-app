@@ -1,5 +1,6 @@
 export const config = {
     apiUrl : "http://localhost:3000/api",
+    //apiUrl: '/choreo-apis/tsar/market-sentry-backend/market-sentry-api-197/v1.0',
     asgardeoConfig:{
         signInRedirectURL: "http://localhost:8080/auth/",
         signOutRedirectURL: "http://localhost:8080",
