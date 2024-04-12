@@ -17,6 +17,10 @@ window.callBackendApi = function async (path, data){
     };
     return auth.httpRequest(requestConfig);
 }
+
+window.signout = function (){
+    auth.signOut();
+}
 /*
 setInterval(async ()=>{
     await auth.refreshAccessToken();
