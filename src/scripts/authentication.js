@@ -21,6 +21,7 @@ window.callBackendApi = function async (path, data){
 window.signout = function (){
     auth.signOut();
 }
+
 /*
 setInterval(async ()=>{
     await auth.refreshAccessToken();

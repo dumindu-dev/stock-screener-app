@@ -1,5 +1,3 @@
-import {config} from "./config.js";
-
 function authenticateUser(auth,noticeBanner){
     /*auth.getAccessToken().then((accessToken)=>{
         let authHeader = {};
@@ -19,7 +17,6 @@ function authenticateUser(auth,noticeBanner){
             alert("Something went wrong. Please refresh this page");
         });
     });*/
-
     window.callBackendApi("/auth/authenticate",{}).then(function(response){
         console.log(response);
         if(response.data.success === 1){
@@ -30,7 +27,7 @@ function authenticateUser(auth,noticeBanner){
         }
     },(e) => {
         console.log(e);
-        alert("Something went wrong. Please refresh this page: ");
+        //alert("Something went wrong. Please refresh this page: ");
     });
 }
 
@@ -38,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let auth = AsgardeoAuth.AsgardeoSPAClient.getInstance();
     let noticeBanner = document.getElementById("notice");
 
-    auth.initialize(config.asgardeoConfig);
-    auth.signIn();
+    //auth.initialize(config.asgardeoConfig);
+    //auth.signIn();
     noticeBanner.innerHTML = "Authenticating the user";
 
 
@@ -47,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
         authenticateUser(auth,noticeBanner);
     });
 
-    document.getElementById("signout").addEventListener("click", function(ev){
+    /*document.getElementById("signout").addEventListener("click", function(ev){
         auth.signOut();
-    });
+    });*/
 
     const waitTillAuth = new Promise(function (resolve, reject) {
         (function wait(){
@@ -61,5 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     waitTillAuth.then(function(){
         authenticateUser(auth,noticeBanner);
     });
+
+    setTimeout(()=>{
+        alert("Oops! It seems like the redirect is taking longer than expected. Please wait a moment or refresh the page");
+    }, 15000);
 
 });
